@@ -12,11 +12,12 @@ import Badge from '@material-ui/core/Badge';
 // Styles
 import { Wrapper } from './App.styles';
 
-const getProducts = async (): Promise<CartItemType> => {
-    return await (await fetch(productsUrl)).json();
-}
+const getProducts = async (): Promise<CartItemType[]> => await (await fetch(productsUrl)).json();
 
 export default function App() {
+    const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts);
+    console.log(data);
+
     return (
         <div className="App">
 
