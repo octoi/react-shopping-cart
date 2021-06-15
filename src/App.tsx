@@ -4,6 +4,7 @@ import { useQuery } from 'react-query';
 import { productsUrl } from './utils/constants';
 import { CartItemType } from './utils/types';
 // Components
+import Item from './item/Item';
 import Drawer from '@material-ui/core/Drawer';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Grid from '@material-ui/core/Grid';
@@ -28,8 +29,14 @@ export default function App() {
     if (error) return <div>something went wrong</div>
 
     return (
-        <div className="App">
-
-        </div>
+        <Wrapper>
+            <Grid container spacing={3}>
+                {data?.map(item => (
+                    <Grid item key={item.id} xs={12} sm={4}>
+                        <Item item={item} handleAddToCart={handleAddToCart} />
+                    </Grid>
+                ))}
+            </Grid>
+        </Wrapper>
     );
 }
