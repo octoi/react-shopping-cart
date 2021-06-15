@@ -20,7 +20,7 @@ export default function App() {
 
     const getTotalItmes = () => null;
 
-    const handleAddToCart = () => null;
+    const handleAddToCart = (ClickedItem: CartItemType) => null;
 
     const handleRemoveFromCart = () => null;
 
