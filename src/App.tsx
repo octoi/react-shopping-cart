@@ -24,6 +24,9 @@ export default function App() {
 
     const handleRemoveFromCart = () => null;
 
+    if (isLoading) return <LinearProgress />
+    if (error) return <div>something went wrong</div>
+
     return (
         <div className="App">
 
