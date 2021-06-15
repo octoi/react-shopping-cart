@@ -16,8 +16,9 @@ import { Wrapper } from './App.styles';
 const getProducts = async (): Promise<CartItemType[]> => await (await fetch(productsUrl)).json();
 
 export default function App() {
+    const [cartOpen, setCartOpen] = useState(false);
+    const [cartItems, setCartItems] = useState([] as CartItemType[]);
     const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts);
-    console.log(data);
 
     const getTotalItmes = () => null;
 
