@@ -18,6 +18,12 @@ export default function App() {
     const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts);
     console.log(data);
 
+    const getTotalItmes = () => null;
+
+    const handleAddToCart = () => null;
+
+    const handleRemoveFromCart = () => null;
+
     return (
         <div className="App">
 
