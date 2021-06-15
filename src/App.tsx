@@ -5,6 +5,7 @@ import { productsUrl } from './utils/constants';
 import { CartItemType } from './utils/types';
 // Components
 import Item from './item/Item';
+import Cart from './cart/Cart';
 import Drawer from '@material-ui/core/Drawer';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import Grid from '@material-ui/core/Grid';
@@ -24,7 +25,7 @@ export default function App() {
 
     const handleAddToCart = (ClickedItem: CartItemType) => null;
 
-    const handleRemoveFromCart = () => null;
+    const handleRemoveFromCart = (id: number) => null;
 
     if (isLoading) return <LinearProgress />
     if (error) return <div>something went wrong</div>
@@ -32,7 +33,7 @@ export default function App() {
     return (
         <Wrapper>
             <Drawer anchor="right" open={cartOpen} onClose={() => setCartOpen(false)}>
-                cart goes here
+                <Cart cartItems={cartItems} addToCart={handleAddToCart} removeFromCart={handleRemoveFromCart} />
             </Drawer>
             <StyledButton onClick={() => setCartOpen(true)}>
                 <Badge badgeContent={getTotalItems(cartItems)} color="error">
