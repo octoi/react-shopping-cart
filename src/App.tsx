@@ -20,7 +20,7 @@ export default function App() {
     const [cartItems, setCartItems] = useState([] as CartItemType[]);
     const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts);
 
-    const getTotalItems = (items: CartItemType[]) => null;
+    const getTotalItems = (items: CartItemType[]) => items.reduce((ack: number, item) => ack + item.amount, 0);
 
     const handleAddToCart = (ClickedItem: CartItemType) => null;
 
